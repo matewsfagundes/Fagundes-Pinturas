@@ -1,1 +1,3 @@
-
+Server:
+  Servlet:
+    Context-path: /Fagundes-Pinturas/api

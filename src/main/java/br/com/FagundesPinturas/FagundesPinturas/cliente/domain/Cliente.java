@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import br.com.FagundesPinturas.FagundesPinturas.cliente.application.api.ClienteAlteracaoRequest;
 import br.com.FagundesPinturas.FagundesPinturas.cliente.application.api.ClienteRequest;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -46,5 +47,15 @@ public class Cliente {
 		this.sexo = clienteRequest.getSexo();
 		this.cpfCnpj = clienteRequest.getCpfCnpj();
 		this.dataEHoraDoCadastro = LocalDateTime.now();
+	}
+
+	public void altera(ClienteAlteracaoRequest clienteRequest) {
+		this.nomeCompleto = clienteRequest.getNomeCompleto();
+		this.email = clienteRequest.getEmail();
+		this.whatsApp = clienteRequest.getWhatsApp();
+		this.sexo = clienteRequest.getSexo();
+		this.cpfCnpj = clienteRequest.getCpfCnpj();
+		this.dataHoraUltimaAlteracao = LocalDateTime.now();
+		
 	}
 }

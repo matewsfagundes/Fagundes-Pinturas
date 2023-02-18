@@ -1,7 +1,10 @@
 package br.com.FagundesPinturas.FagundesPinturas.cliente.application.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
+import br.com.FagundesPinturas.FagundesPinturas.cliente.application.api.ClienteListResponse;
 import br.com.FagundesPinturas.FagundesPinturas.cliente.application.api.ClienteRequest;
 import br.com.FagundesPinturas.FagundesPinturas.cliente.application.api.ClienteResponse;
 import br.com.FagundesPinturas.FagundesPinturas.cliente.application.repository.ClienteRepository;
@@ -22,5 +25,12 @@ public class ClienteApplicationService implements ClienteService {
 		return ClienteResponse.builder()
 				.idCliente(cliente.getIdCliente())
 				.build();
+	}
+
+	@Override
+	public List<ClienteListResponse> buscarTodosClientes() {
+		log.info("[inicia] ClienteApplicationService - buscarTodosClientes");
+		log.info("[finaliza] ClienteApplicationService - buscarTodosClientes");
+		return null;
 	}
 }

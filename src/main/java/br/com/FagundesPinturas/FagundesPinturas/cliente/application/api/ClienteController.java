@@ -3,6 +3,8 @@ package br.com.FagundesPinturas.FagundesPinturas.cliente.application.api;
 import java.util.List;
 import java.util.UUID;
 
+import javax.validation.Valid;
+
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.FagundesPinturas.FagundesPinturas.cliente.application.service.ClienteService;
@@ -43,9 +45,16 @@ public class ClienteController implements ClienteAPI {
 	@Override
 	public void deletalienteAtravesId(UUID idCliente) {
 		log.info("[inicia] ClienteController - deletalienteAtravesId");
-		log.info("[idCliente] {}", idCliente); 
+		log.info("[idCliente] {}", idCliente);
 		clienteService.deletaClienteAtravesId(idCliente);
 		log.info("[finaliza] ClienteController - deletalienteAtravesId");
-		
+
+	}
+
+	@Override
+	public void patchAlteraCliente(UUID idCliente, @Valid ClienteAlteracaoRequest clienteAlteracaoRequest) {
+		log.info("[inicia] ClienteController - patchAlteraCliente");
+		log.info("[idCliente] {}", idCliente);
+		log.info("[finaliza] ClienteController - patchAlteraCliente");
 	}
 }

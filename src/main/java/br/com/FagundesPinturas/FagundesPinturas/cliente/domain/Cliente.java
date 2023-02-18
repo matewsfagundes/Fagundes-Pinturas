@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import br.com.FagundesPinturas.FagundesPinturas.cliente.application.api.ClienteRequest;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,6 +20,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @Entity
 public class Cliente {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(columnDefinition = "uuid", name = "id", updatable = false, unique = true, nullable = false)
@@ -37,4 +39,12 @@ public class Cliente {
 	private LocalDateTime dataEHoraDoCadastro;
 	private LocalDateTime dataHoraUltimaAlteracao;
 
+	public Cliente(ClienteRequest clienteRequest) {
+		this.nomeCompleto = clienteRequest.getNomeCompleto();
+		this.email = clienteRequest.getEmail();
+		this.whatsApp = clienteRequest.getWhatsApp();
+		this.sexo = clienteRequest.getSexo();
+		this.cpfCnpj = clienteRequest.getCpfCnpj();
+		this.dataEHoraDoCadastro = LocalDateTime.now();
+	}
 }

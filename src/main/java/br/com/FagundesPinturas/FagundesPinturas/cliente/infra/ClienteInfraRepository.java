@@ -3,19 +3,22 @@ package br.com.FagundesPinturas.FagundesPinturas.cliente.infra;
 import java.util.List;
 import java.util.UUID;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
 import br.com.FagundesPinturas.FagundesPinturas.cliente.application.repository.ClienteRepository;
 import br.com.FagundesPinturas.FagundesPinturas.cliente.domain.Cliente;
+import br.com.FagundesPinturas.FagundesPinturas.handler.APIException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+
 @Repository
 @Log4j2
 @RequiredArgsConstructor
 public class ClienteInfraRepository implements ClienteRepository {
 
 	private final ClienteSpringDataJPARepository clienteSpringDataJPARepository;
-	
+
 	@Override
 	public Cliente salva(Cliente cliente) {
 		log.info("[inicia] ClienteInfraRepository - salva");
@@ -35,8 +38,10 @@ public class ClienteInfraRepository implements ClienteRepository {
 	@Override
 	public Cliente buscaClienteAtravesId(UUID idCliente) {
 		log.info("[inicia] ClienteInfraRepository - buscaClienteAtravesId");
+		Cliente cliente = clienteSpringDataJPARepository.findById(idCliente)
+				.orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Cliente não encontrado"));
 		log.info("[finaliza] ClienteInfraRepository - buscaClienteAtravesId");
-		return null;
+		return cliente;
 	}
 
 }

@@ -1,5 +1,7 @@
 package br.com.fagundespinturas.fagundespinturas.cliente.infra;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import br.com.fagundespinturas.fagundespinturas.cliente.application.repository.ClienteRepository;
@@ -18,7 +20,15 @@ public class ClienteInfraRepository implements ClienteRepository {
 	public Cliente salva(Cliente cliente) {
 		log.info("[inicia] ClienteInfraRepository - salva");
 		clienteSpringDataJPArepository.save(cliente);
-		log.info("[f] ClienteInfraRepository - salva");
+		log.info("[finaliza] ClienteInfraRepository - salva");
 		return cliente;
+	}
+
+	@Override
+	public List<Cliente> buscaTodosClientes() {
+		log.info("[inicia] ClienteInfraRepository - buscaTodosClientes");
+		List<Cliente> todosClientes = clienteSpringDataJPArepository.findAll()
+;		log.info("[finaliza] ClienteInfraRepository - buscaTodosClientes");
+		return todosClientes;
 	}
 }

@@ -1,6 +1,7 @@
 package br.com.fagundespinturas.fagundespinturas.cliente.infra;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.stereotype.Repository;
 
@@ -30,5 +31,14 @@ public class ClienteInfraRepository implements ClienteRepository {
 		List<Cliente> todosClientes = clienteSpringDataJPArepository.findAll()
 ;		log.info("[finaliza] ClienteInfraRepository - buscaTodosClientes");
 		return todosClientes;
+	}
+
+	@Override
+	public Cliente buscaClienteAtravesId(UUID idCliente) {
+		log.info("[inicia] ClienteInfraRepository - buscaClienteAtravesId");
+		Cliente cliente = clienteSpringDataJPArepository.findById(idCliente)
+				.orElseThrow(() -> new RuntimeException("Cliente Não encontrado!"));
+		log.info("[finaliza] ClienteInfraRepository - buscaClienteAtravesId");
+		return cliente;
 	}
 }

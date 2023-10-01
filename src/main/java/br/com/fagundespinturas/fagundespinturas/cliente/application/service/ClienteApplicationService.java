@@ -3,8 +3,11 @@ package br.com.fagundespinturas.fagundespinturas.cliente.application.service;
 import java.util.List;
 import java.util.UUID;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Service;
 
+import br.com.fagundespinturas.fagundespinturas.cliente.application.api.ClienteAlteracaoRequest;
 import br.com.fagundespinturas.fagundespinturas.cliente.application.api.ClienteDetalhadoResponse;
 import br.com.fagundespinturas.fagundespinturas.cliente.application.api.ClienteListResponse;
 import br.com.fagundespinturas.fagundespinturas.cliente.application.api.ClienteRequest;
@@ -42,5 +45,14 @@ public class ClienteApplicationService implements ClienteService {
 		Cliente cliente = clienteRepository.buscaClienteAtravesId(idCliente);
 		log.info("[finaliza] ClienteApplicationService - buscaClienteAtravesId");
 		return new ClienteDetalhadoResponse(cliente);
+	}
+
+	@Override
+	public void patchAlteraCliente(UUID idCliente, @Valid ClienteAlteracaoRequest clienteAlteracaoRequest) {
+		log.info("[inicia] ClienteApplicationService - patchAlteraCliente");
+		Cliente cliente = clienteRepository.buscaClienteAtravesId(idCliente);
+		cliente.altera(clienteAlteracaoRequest);
+		clienteRepository.salva(cliente);
+		log.info("[finaliza] ClienteApplicationService - patchAlteraCliente");
 	}
 }

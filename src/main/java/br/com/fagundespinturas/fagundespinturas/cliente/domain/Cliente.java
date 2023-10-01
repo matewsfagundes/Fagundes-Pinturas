@@ -8,12 +8,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.br.CPF;
 
+import br.com.fagundespinturas.fagundespinturas.cliente.application.api.ClienteAlteracaoRequest;
 import br.com.fagundespinturas.fagundespinturas.cliente.application.api.ClienteRequest;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -47,5 +49,11 @@ public class Cliente {
 		this.sexo = clienteRequest.getSexo();
 		this.dataNascimento = clienteRequest.getDataNascimento();
 		this.cpf = clienteRequest.getCpf();
+	}
+
+	public void altera(@Valid ClienteAlteracaoRequest clienteAlteracaoRequest) {
+		this.nomeCompleto = clienteAlteracaoRequest.getNomeCompleto();
+		this.email = clienteAlteracaoRequest.getEmail();
+		this.celular = clienteAlteracaoRequest.getCelular();
 	}
 }

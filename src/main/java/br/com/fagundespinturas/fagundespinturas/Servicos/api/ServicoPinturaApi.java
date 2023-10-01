@@ -1,10 +1,12 @@
 package br.com.fagundespinturas.fagundespinturas.Servicos.api;
 
+import java.util.List;
 import java.util.UUID;
 
 import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,6 +20,10 @@ public interface ServicoPinturaApi {
 	
 	@PostMapping(value = "/{idCliente}")
 	@ResponseStatus(code = HttpStatus.CREATED)
-	ServicoPinturaResponse postServico(@PathVariable UUID idPessoa,
+	ServicoPinturaResponse postServico(@PathVariable UUID idCliente,
 			@Valid @RequestBody ServicoPinturaRequest servicoPinturaRequest);
+	
+	@GetMapping(value = "/{idCliente}")
+	@ResponseStatus(code = HttpStatus.OK)
+	List<ListaServicoPinturaResponse> listaServicoPinturas(@PathVariable UUID idCliente);
 }

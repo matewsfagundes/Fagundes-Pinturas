@@ -23,6 +23,8 @@ Esse projeto tem o objeito de interligar as entidades de Cliente, Serviços.
 * > Para executar o projeto na sua máquina, abre sua IDE de preferencia e execute a classe: FagundesPinturasApplication.java 
 * > Pode acessar também o Swagger para fazer os testes da API, rodando o projeto na máquina e acessar através do link ⬇️:
  http://localhost:8080/fagundes-pinturas/api/public/swagger-ui/index.html#/
+* > Após executar a instrução acima, basta apenas acessar o applicativo do Postman e importar as Colletions estão acessíveis ⬇️::
+#### https://api.postman.com/collections/24267826-4f3c28ed-3b40-4dfd-a68b-62e2022a1a4d?access_key=PMAT-01HBPP4A8ARK7HZTXFRE7WWFX1
 
 
 ## 📋 Pré-requisitos

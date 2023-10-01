@@ -32,7 +32,8 @@ public class ServicoPinturaApplicationService implements ServicoPinturaService {
 	@Override
 	public List<ListaServicoPinturaResponse> listaServicoPinturas(UUID idCliente) {
 		log.info("[inicia] ServicoPinturaApplicationService - listaServicoPinturas");
+		List<ServicoPintura> servicosPinturas = servicoPinturaRepository.listaServicoPinturas(idCliente);
 		log.info("[finalzia] ServicoPinturaApplicationService - listaServicoPinturas");
-		return null;
+		return ListaServicoPinturaResponse.converte(servicosPinturas);
 	}
 }

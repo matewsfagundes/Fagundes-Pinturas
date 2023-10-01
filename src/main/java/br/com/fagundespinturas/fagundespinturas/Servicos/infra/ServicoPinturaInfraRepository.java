@@ -1,5 +1,8 @@
 package br.com.fagundespinturas.fagundespinturas.Servicos.infra;
 
+import java.util.List;
+import java.util.UUID;
+
 import org.springframework.stereotype.Repository;
 
 import br.com.fagundespinturas.fagundespinturas.Servicos.api.repository.ServicoPinturaRepository;
@@ -19,5 +22,13 @@ public class ServicoPinturaInfraRepository implements ServicoPinturaRepository {
 		servicoPinturaSpringDataJPARepository.save(servicoPintura);
 		log.info("[finaliza] ServicoPinturaInfraRepository - salvaServico");
 		return servicoPintura;
+	}
+
+	@Override
+	public List<ServicoPintura> listaServicoPinturas(UUID idCliente) {
+		log.info("[inicia] ServicoPinturaInfraRepository - listaServicoPinturas");
+		List<ServicoPintura> todosServicos = servicoPinturaSpringDataJPARepository.findAll();
+		log.info("[finaliza] ServicoPinturaInfraRepository - listaServicoPinturas");
+		return todosServicos;
 	}
 }

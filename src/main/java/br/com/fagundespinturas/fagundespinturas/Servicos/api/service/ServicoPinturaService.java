@@ -10,4 +10,5 @@ import br.com.fagundespinturas.fagundespinturas.Servicos.api.ServicoPinturaRespo
 public interface ServicoPinturaService {
 	ServicoPinturaResponse criaServico(UUID idCliente, ServicoPinturaRequest servicoPinturaRequest);
 	List<ListaServicoPinturaResponse> listaServicoPinturas(UUID idCliente);
+	void alteraServicoPintura(UUID idServicoPintura, ServicoPinturaRequest servicoPinturaRequest);
 }

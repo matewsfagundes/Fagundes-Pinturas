@@ -3,6 +3,8 @@ package br.com.fagundespinturas.fagundespinturas.Servicos.api;
 import java.util.List;
 import java.util.UUID;
 
+import javax.validation.Valid;
+
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.fagundespinturas.fagundespinturas.Servicos.api.service.ServicoPinturaService;
@@ -32,5 +34,14 @@ public class ServicoPinturaController implements ServicoPinturaApi {
 				.listaServicoPinturas(idCliente);
 		log.info("[finaliza] ServicoPinturaController - listaServicoPinturas");
 		return servicosPintura;
+	}
+
+	@Override
+	public void alteraServicoPintura(UUID idServicoPintura, @Valid ServicoPinturaRequest servicoPinturaRequest) {
+		log.info("[inicia] ServicoPinturaController - alteraServicoPintura");
+		log.info("[idCliente] {}", idServicoPintura);
+		servicoPinturaService.alteraServicoPintura(idServicoPintura, servicoPinturaRequest);
+		log.info("[finaliza] ServicoPinturaController - alteraServicoPintura");
+		
 	}
 }

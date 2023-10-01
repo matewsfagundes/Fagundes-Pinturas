@@ -7,6 +7,7 @@ import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,4 +27,9 @@ public interface ServicoPinturaApi {
 	@GetMapping(value = "/{idCliente}")
 	@ResponseStatus(code = HttpStatus.OK)
 	List<ListaServicoPinturaResponse> listaServicoPinturas(@PathVariable UUID idCliente);
+	
+	@PatchMapping(value = "/{idServicoPintura}")
+	@ResponseStatus(code = HttpStatus.NO_CONTENT)
+	void alteraServicoPintura(@PathVariable UUID idServicoPintura,
+			@Valid @RequestBody ServicoPinturaRequest servicoPinturaRequest);
 }

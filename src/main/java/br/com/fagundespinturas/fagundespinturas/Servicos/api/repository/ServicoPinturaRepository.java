@@ -9,5 +9,6 @@ public interface ServicoPinturaRepository {
 
 	ServicoPintura salvaServico(ServicoPintura servicoPintura);
 	List<ServicoPintura> listaServicoPinturas(UUID idCliente);
+	ServicoPintura buscarServicoComId(UUID idServicoPintura);
  
 }

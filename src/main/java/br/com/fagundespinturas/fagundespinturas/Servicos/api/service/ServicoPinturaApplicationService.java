@@ -36,4 +36,13 @@ public class ServicoPinturaApplicationService implements ServicoPinturaService {
 		log.info("[finalzia] ServicoPinturaApplicationService - listaServicoPinturas");
 		return ListaServicoPinturaResponse.converte(servicosPinturas);
 	}
+
+	@Override
+	public void alteraServicoPintura(UUID idServicoPintura, ServicoPinturaRequest servicoPinturaRequest) {
+		log.info("[inicia] ServicoPinturaApplicationService - alteraServicoPintura");
+		ServicoPintura servicoPintura = servicoPinturaRepository.buscarServicoComId(idServicoPintura);
+		servicoPintura.altera(servicoPinturaRequest);
+		servicoPinturaRepository.salvaServico(servicoPintura);
+		log.info("[inicia] ServicoPinturaApplicationService - alteraServicoPintura");
+	}
 }

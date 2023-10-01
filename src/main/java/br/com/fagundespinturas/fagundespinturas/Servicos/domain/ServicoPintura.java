@@ -44,4 +44,13 @@ public class ServicoPintura {
 		this.dataInicio = LocalDateTime.now();
 		this.dataPrazo = LocalDateTime.now();
 	}
+
+
+	public void altera(ServicoPinturaRequest servicoPinturaRequest) {
+		this.tipoPintura = servicoPinturaRequest.getTipoPintura();
+		this.areaServico = servicoPinturaRequest.getAreaServico();
+		this.esquemaCores = servicoPinturaRequest.getEsquemaCores();
+		this.dataInicio = LocalDateTime.now();
+		this.dataPrazo = LocalDateTime.now();
+	}
 }

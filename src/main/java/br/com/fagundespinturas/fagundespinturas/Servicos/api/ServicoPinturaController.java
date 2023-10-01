@@ -28,7 +28,9 @@ public class ServicoPinturaController implements ServicoPinturaApi {
 	public List<ListaServicoPinturaResponse> listaServicoPinturas(UUID idCliente) {
 		log.info("[inicia] ServicoPinturaController - listaServicoPinturas");
 		log.info("[idCliente] {}", idCliente);
+		List<ListaServicoPinturaResponse> servicosPintura = servicoPinturaService
+				.listaServicoPinturas(idCliente);
 		log.info("[finaliza] ServicoPinturaController - listaServicoPinturas");
-		return null;
+		return servicosPintura;
 	}
 }

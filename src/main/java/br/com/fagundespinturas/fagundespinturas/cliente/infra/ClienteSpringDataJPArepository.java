@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import br.com.fagundespinturas.fagundespinturas.cliente.domain.Cliente;
 
-public interface ClienteSpringDataJPArepository extends JpaRepository<Cliente, UUID> {
+public interface ClienteSpringDataJPArepository extends JpaRepository <Cliente, UUID> {
 }

@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import br.com.fagundespinturas.fagundespinturas.Servicos.api.ServicoPinturaRequest;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.Getter;
@@ -21,6 +22,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class ServicoPintura {
 
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(columnDefinition = "uuid", name = "id", updatable = false, unique = true, nullable = false)
@@ -33,4 +35,13 @@ public class ServicoPintura {
     private LocalDateTime dataInicio;
     private LocalDateTime dataPrazo; 
     
+
+	public ServicoPintura(UUID idCliente, ServicoPinturaRequest servicoPinturaRequest) {
+		this.idClienteContratante = idCliente;
+		this.tipoPintura = servicoPinturaRequest.getTipoPintura();
+		this.areaServico = servicoPinturaRequest.getAreaServico();
+		this.esquemaCores = servicoPinturaRequest.getEsquemaCores();
+		this.dataInicio = LocalDateTime.now();
+		this.dataPrazo = LocalDateTime.now();
+	}
 }

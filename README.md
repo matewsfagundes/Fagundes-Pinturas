@@ -32,4 +32,7 @@ Esse projeto tem o objeito de interligar as entidades de Cliente, Serviços.
 São necessários os seguintes pré-requisitos para a execução do projeto: ⬇️
 Java 11 ou versões superiores. Maven 4.0.0 ou versões superiores. Sua IDE favorita
 
+## Autor
+#### Matheus Fagundes
+
 
